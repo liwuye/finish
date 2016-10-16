@@ -1,21 +1,20 @@
-package dao;
-
-/*
- * 用户名密码登录界面，添加判断用户名和密码是否正确
- * */
+//登陆界面
 import java.awt.*;
+
 import javax.swing.*;
+
 import java.awt.event.*;
-public class denglujiemian extends JFrame {
+public class login extends JFrame {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        new denglujiemian();
+        new login();
     }
-    public denglujiemian(){
-        JFrame jf=new JFrame ();
+    public login(){
+        final JFrame jf=new JFrame ();
         Container container=jf.getContentPane();
         jf.setBounds(300,200,300,180);
+        jf.setTitle("服务端登录");
         container.setLayout(null);
         
         JLabel jl1=new JLabel("用户名");
@@ -34,11 +33,11 @@ public class denglujiemian extends JFrame {
         
         JButton jb1=new JButton("确定");
         jb1.setBounds(40,90,80,30);
-        JButton jb2=new JButton("取消");
+        JButton jb2=new JButton("重置");
         jb2.setBounds(170,90,80,30);
         container.add(jb1);
         container.add(jb2);
-        
+        jf.setResizable(false);
         jf.setVisible(true);
         jf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
@@ -46,7 +45,9 @@ public class denglujiemian extends JFrame {
         jb1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if(name.getText().trim().equals("admin")&&password.getText().trim().equals("123456")){
-                    JOptionPane.showMessageDialog(null,"登录成功");
+                	JOptionPane.showMessageDialog(null,"登录成功");
+                	jf.setVisible(false);
+                	new Frame();//跳转主页面
                 }
                 else if(name.getText().trim().length()==0||password.getText().trim().length()==0){
                     JOptionPane.showMessageDialog(null,"用户名或密码不能为空！");
@@ -55,6 +56,7 @@ public class denglujiemian extends JFrame {
                 }
                 
             }
+
         });
         
         jb2.addActionListener(new ActionListener(){
