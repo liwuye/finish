@@ -1,5 +1,4 @@
-package sock;
-
+//文件传输服务端
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,13 +12,7 @@ import java.net.Socket;
  *
  */
 public class BxClient {
-	
-	/**
-	 * 程序main方法
-	 * @param args
-	 * @throws IOException
-	 */
-	public static void main(String[] args) throws IOException {
+	public BxClient() throws IOException {
 		int length = 0;
 		double sumL = 0 ;
 		byte[] sendBytes = null;
@@ -28,10 +21,10 @@ public class BxClient {
 		FileInputStream fis = null;
 		boolean bool = false;
 		try {
-			File file = new File("G:/1.zip"); //要传输的文件路径
+			File file = new File("E:/ServerUI.zip"); //要传输的文件路径
 			long l = file.length(); 
 			socket = new Socket();  
-			socket.connect(new InetSocketAddress("172.25.240.47", 48123));
+			socket.connect(new InetSocketAddress("172.25.240.37", 48123));
 			dos = new DataOutputStream(socket.getOutputStream());
 			fis = new FileInputStream(file);      
 			sendBytes = new byte[1024];  
@@ -58,5 +51,19 @@ public class BxClient {
 				socket.close();    
 		}
 		System.out.println(bool?"成功":"失败");
+	}
+	
+	/**
+	 * 程序main方法
+	 * @param args
+	 * @throws IOException
+	 */
+	public static void main(String[] args){
+		try {
+			new BxClient();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
