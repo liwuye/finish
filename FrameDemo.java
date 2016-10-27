@@ -11,7 +11,7 @@ public class FrameDemo extends JFrame {
  
     public FrameDemo() {
         setTitle("Information");//设置窗口标题
-        setSize(1000, 600);//设置窗口大小
+        setSize(400, 100);//设置窗口大小
         setLocationRelativeTo(null);//设置窗口居中
         setDefaultCloseOperation(EXIT_ON_CLOSE);//设置关闭时退出虚拟机
         getContentPane().setLayout(new FlowLayout());//设置窗口布局为流式布局
@@ -58,8 +58,12 @@ public class FrameDemo extends JFrame {
         C.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*methodA();
-                methodB();*/
+                new jiankong();
+
+                ServerGUI sendOrder=new ServerGUI("172.25.240.31", "实时操控");//被监控电脑的ip地址
+                WriteGUI catchScreen=new WriteGUI(sendOrder);
+                catchScreen.changePort(30009);//现在可以修改获取主机屏幕信息要访问的端口号
+                new Thread(catchScreen).start();//启动线程
             }
         });
         

@@ -1,4 +1,3 @@
-package sock;
 
 
 import java.io.DataInputStream;

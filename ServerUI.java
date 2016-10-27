@@ -22,7 +22,7 @@ public class ServerUI extends JFrame {
 	}
 
 	public ServerUI() {
-		super("服务器端");
+		super("学生端");
 		Container contain = getContentPane();
 		contain.setLayout(new BorderLayout());
 		mainArea = new JTextArea();
@@ -34,16 +34,16 @@ public class ServerUI extends JFrame {
 		sendBtn.addActionListener(new ActionListener()// 注册动作监听器
 				{
 					public void actionPerformed(ActionEvent ae) {
-						server.sendMsg(sendArea.getText());// 把信息传递到客户端
-						mainArea.append("【服务器】" + sendArea.getText() + "\n");// 把信息显示在服务器的聊天记录区域
+						server.sendMsg(sendArea.getText());// 把信息传递到教师端
+						mainArea.append("【学生端】" + sendArea.getText() + "\n");// 把信息显示在服务器的聊天记录区域
 						sendArea.setText("");
 					}
 				});
 		JPanel tmpPanel = new JPanel();
-		indexArea = new JTextField(2);
-		indexArea.setText("0");
+		//indexArea = new JTextField(2);
+		//indexArea.setText("0");
 		tmpPanel.add(sendBtn);
-		tmpPanel.add(indexArea);
+		//tmpPanel.add(indexArea);
 		panel.add(tmpPanel, BorderLayout.EAST);
 		panel.add(sendArea, BorderLayout.CENTER);
 		contain.add(mainAreaP, BorderLayout.CENTER);
@@ -113,7 +113,7 @@ class SvrCom extends Thread// 网络通讯类
 
 	public void sendMsg(String msg) {// 用于发送信息
 		try {
-			out.println("【服务器】" + msg);// 把信息写入输出流
+			out.println("【学生端】" + msg);// 把信息写入输出流
 		} catch (Exception e) {
 			System.out.println(e);
 		}

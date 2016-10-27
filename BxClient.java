@@ -39,7 +39,7 @@ public class BxClient {
 				bool = true;
 			}
 		}catch (Exception e) {
-			System.out.println("客户端文件传输异常");
+			System.out.println("学生端文件传输异常");
 			bool = false;
 			e.printStackTrace();  
 		} finally{  

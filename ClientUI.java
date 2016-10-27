@@ -25,7 +25,7 @@ public class ClientUI extends JFrame {
 	}
 
 	public ClientUI() {
-		super("客户端");
+		super("教师端");
 		Container contain = getContentPane();
 		contain.setLayout(new BorderLayout());
 		mainArea = new JTextArea();
@@ -37,7 +37,7 @@ public class ClientUI extends JFrame {
 		sendBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				client.sendMsg(sendArea.getText());
-				mainArea.append("【客户端】" + sendArea.getText() + "\n");
+				mainArea.append("【教师端】" + sendArea.getText() + "\n");
 				sendArea.setText("");
 			}
 		});
@@ -86,7 +86,7 @@ class ChatClient extends Thread {
 		this.ui = ui;
 		try {
 			sc = new Socket(ip, port); // 创建sc, 用服务器ip和端口作参数
-			System.out.println("已顺利联接到服务器。");
+			System.out.println("已顺利联接到学生端。");
 			out = new PrintWriter(sc.getOutputStream(), true);
 			in = new BufferedReader(new InputStreamReader(sc.getInputStream()));
 		} catch (Exception e) {
@@ -115,7 +115,7 @@ class ChatClient extends Thread {
 
 	public void sendMsg(String msg) {// 用于发送信息
 		try {
-			out.println("【客户端】" + msg);
+			out.println("【教师端】" + msg);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
