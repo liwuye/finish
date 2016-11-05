@@ -53,10 +53,7 @@ public class ServerUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	public static void main(String[] args) {
-		ServerUI ui = new ServerUI();
-		SvrCom server = new SvrCom(ui);// 创建并启动网络通讯线程，准备接受客户端数据包
-	}
+
 }
 
 /**

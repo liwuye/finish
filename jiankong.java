@@ -31,13 +31,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class jiankong{
- public static void main(String args[]) {
 
-  ServerGUI sendOrder=new ServerGUI("172.25.240.31", "实时操控");//被监控电脑的ip地址
-  WriteGUI catchScreen=new WriteGUI(sendOrder);
-  catchScreen.changePort(30009);//现在可以修改获取主机屏幕信息要访问的端口号
-  new Thread(catchScreen).start();//启动线程
- }
 }
 
 /**

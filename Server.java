@@ -24,16 +24,7 @@ import java.util.zip.ZipOutputStream;
 import javax.imageio.ImageIO;
 
 public class Server{
- public static void main(String args[]) {
-  SendScreenImg sender=new SendScreenImg();
-  sender.changeServerPort(30009);//此处可以修改服务端口
-  new Thread(sender).start();//打开图像传输服务
-  OperateWindow operate=new OperateWindow();
-//  operate.changeServerPort(30010);//此处可以修改服务端口
-  new Thread(operate).start();//打开主机操控服务
-  
-  //***** 当然 服务器端的端口修改是随时都可以操作的 它实际上是关闭以前的端口 再开启一个新端口 *****//
- }
+
 }
 
 /**

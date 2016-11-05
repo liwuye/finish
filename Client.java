@@ -47,7 +47,20 @@ public class Client extends JFrame {
                 if(name.getText().trim().equals("admin")&&password.getText().trim().equals("123456")){
                 	JOptionPane.showMessageDialog(null,"登录成功");
                 	jf.setVisible(false);
+                	new BxServerSocket();
                 	new FrameDemo().setVisible(true);
+                }
+                else if(name.getText().trim().equals("14251104207")&&password.getText().trim().equals("123456")){
+                	JOptionPane.showMessageDialog(null,"登录成功");
+                	jf.setVisible(false);
+                	new BxServerSocket();
+                	new Server();
+                	SendScreenImg sender=new SendScreenImg();
+                	sender.changeServerPort(30009);
+                	new Thread(sender).start();
+                	OperateWindow operate=new OperateWindow();
+                	new Thread(operate).start();
+                	new FrameDemo1().setVisible(true);
                 }
                 else if(name.getText().trim().length()==0||password.getText().trim().length()==0){
                     JOptionPane.showMessageDialog(null,"用户名或密码不能为空！");

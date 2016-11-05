@@ -16,15 +16,11 @@ public class ClientUI extends JFrame {
 
 	ChatClient client;
 
-	JTextField ipArea;
-
-	JButton btnLink;
-
 	public void setClient(ChatClient client) {
 		this.client = client;
 	}
 
-	public ClientUI() {
+	public ClientUI(String IP) {
 		super("教师端");
 		Container contain = getContentPane();
 		contain.setLayout(new BorderLayout());
@@ -41,23 +37,19 @@ public class ClientUI extends JFrame {
 				sendArea.setText("");
 			}
 		});
-		JPanel ipPanel = new JPanel();
+		/*JPanel ipPanel = new JPanel();
 		ipPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		ipPanel.add(new JLabel("服务器："));
 		ipArea = new JTextField(12);
-		ipArea.setText("172.25.240.31");
+		ipArea.setText("");
 		ipPanel.add(ipArea);
 		btnLink = new JButton("连接");
-		ipPanel.add(btnLink);
-		btnLink.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent ae) {
-				client = new ChatClient(ipArea.getText(), 6666, ClientUI.this);// 创建socket对象
-				ClientUI.this.setClient(client);
-			}
-		});
+		ipPanel.add(btnLink);*/
+		client = new ChatClient(IP, 6666, ClientUI.this);// 创建socket对象
+		ClientUI.this.setClient(client);
 		panel.add(sendBtn, BorderLayout.EAST);
 		panel.add(sendArea, BorderLayout.CENTER);
-		contain.add(ipPanel, BorderLayout.NORTH);
+		//contain.add(ipPanel, BorderLayout.NORTH);
 		contain.add(mainAreaP, BorderLayout.CENTER);
 		contain.add(panel, BorderLayout.SOUTH);
 		setSize(500, 300);
@@ -65,9 +57,6 @@ public class ClientUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	public static void main(String[] args) {
-		ClientUI ui = new ClientUI();
-	}
 }
 
 /**

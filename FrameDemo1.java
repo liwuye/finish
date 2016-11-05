@@ -4,11 +4,11 @@ import java.io.IOException;
 
 import javax.swing.*;
  
-public class FrameDemo extends JFrame {
+public class FrameDemo1 extends JFrame {
 
-    public FrameDemo() {
-        String IP = javax.swing.JOptionPane.showInputDialog(null,"请输入要监控的电脑的IP");
-        setTitle("教师端");//设置窗口标题
+    public FrameDemo1() {
+    	String IP = javax.swing.JOptionPane.showInputDialog(null,"请输入主机的电脑的IP");
+        setTitle("学生端");//设置窗口标题
         setSize(400, 100);//设置窗口大小
         setLocationRelativeTo(null);//设置窗口居中
         setDefaultCloseOperation(EXIT_ON_CLOSE);//设置关闭时退出虚拟机
@@ -33,9 +33,9 @@ public class FrameDemo extends JFrame {
         JButton B = new JButton("消息传输");
         B.setBounds(10, 10, 50, 50);
         jp.add(B);
-        JButton C = new JButton("远程监控");
-        C.setBounds(10, 10, 50, 50);
-        jp.add(C);
+        //JButton C = new JButton("远程监控");
+        //C.setBounds(10, 10, 50, 50);
+        //jp.add(C);
         A.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,20 +50,21 @@ public class FrameDemo extends JFrame {
         B.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ClientUI(IP);
+        		ServerUI ui = new ServerUI();
+        		SvrCom server = new SvrCom(ui);// 创建并启动网络通讯线程，准备接受客户端数据包
             }
         });
-        C.addActionListener(new ActionListener() {
+        /*C.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new jiankong();
-                ServerGUI sendOrder=new ServerGUI(IP, "实时操控");//被监控电脑的ip地址
+                ServerGUI sendOrder=new ServerGUI("172.25.240.31", "实时操控");//被监控电脑的ip地址
                 WriteGUI catchScreen=new WriteGUI(sendOrder);
                 catchScreen.changePort(30009);//现在可以修改获取主机屏幕信息要访问的端口号
                 new Thread(catchScreen).start();//启动线程
             }
-        });
-
+        });*/
+        
         getContentPane().add(jp);
 
     }

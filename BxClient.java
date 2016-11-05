@@ -1,4 +1,4 @@
-//文件传输服务端
+
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,7 +12,7 @@ import java.net.Socket;
  *
  */
 public class BxClient {
-	public BxClient() throws IOException {
+	public BxClient(String IP) throws IOException {
 		int length = 0;
 		double sumL = 0 ;
 		byte[] sendBytes = null;
@@ -21,7 +21,7 @@ public class BxClient {
 		FileInputStream fis = null;
 		boolean bool = false;
 		try {
-			File file = new File("E:/ServerUI.zip"); //要传输的文件路径
+			File file = new File("D:/123.zip"); //要传输的文件路径
 			long l = file.length(); 
 			socket = new Socket();  
 			socket.connect(new InetSocketAddress("172.25.240.37", 48123));
@@ -39,7 +39,7 @@ public class BxClient {
 				bool = true;
 			}
 		}catch (Exception e) {
-			System.out.println("学生端文件传输异常");
+			System.out.println("客户端文件传输异常");
 			bool = false;
 			e.printStackTrace();  
 		} finally{  
@@ -58,12 +58,6 @@ public class BxClient {
 	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args){
-		try {
-			new BxClient();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
+	
 }
