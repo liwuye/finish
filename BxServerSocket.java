@@ -16,15 +16,17 @@ import java.util.Random;
  *
  */
 public class BxServerSocket {
-	
+
+
 	/**
 	 * 工程main方法
 	 * @param args
 	 */
-	public static void main(String[] args) {
+{
 		try {
 			final ServerSocket server = new ServerSocket(48123);
-			Thread th = new Thread(new Runnable() {
+			Thread th = new Thread(new Runnable()
+			{
 				public void run() {
 					while (true) {
 						try {  
@@ -39,8 +41,7 @@ public class BxServerSocket {
 							System.out.println("服务器异常");
 							e.printStackTrace();
 						}
-					}
-				}
+					}}
 			});
 			th.run(); //启动线程运行
 		} catch (Exception e) {

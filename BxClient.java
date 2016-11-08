@@ -24,7 +24,7 @@ public class BxClient {
 			File file = new File("D:/123.zip"); //要传输的文件路径
 			long l = file.length(); 
 			socket = new Socket();  
-			socket.connect(new InetSocketAddress("172.25.240.37", 48123));
+			socket.connect(new InetSocketAddress(IP, 48123));
 			dos = new DataOutputStream(socket.getOutputStream());
 			fis = new FileInputStream(file);      
 			sendBytes = new byte[1024];  

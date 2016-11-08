@@ -1,4 +1,4 @@
-//消息发送客户端
+
 import java.io.*;
 import java.net.*;
 import javax.swing.*;
@@ -34,7 +34,7 @@ public class ServerUI extends JFrame {
 		sendBtn.addActionListener(new ActionListener()// 注册动作监听器
 				{
 					public void actionPerformed(ActionEvent ae) {
-						server.sendMsg(sendArea.getText());// 把信息传递到教师端
+						server.sendMsg(sendArea.getText());// 把信息传递到客户端
 						mainArea.append("【学生端】" + sendArea.getText() + "\n");// 把信息显示在服务器的聊天记录区域
 						sendArea.setText("");
 					}
@@ -53,7 +53,10 @@ public class ServerUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-
+	public static void main(String[] args) {
+		ServerUI ui = new ServerUI();
+		SvrCom server = new SvrCom(ui);// 创建并启动网络通讯线程，准备接受客户端数据包
+	}
 }
 
 /**

@@ -40,20 +40,20 @@ public class Client extends JFrame {
         jf.setResizable(false);
         jf.setVisible(true);
         jf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+
         //设置监听
         jb1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if(name.getText().trim().equals("admin")&&password.getText().trim().equals("123456")){
                 	JOptionPane.showMessageDialog(null,"登录成功");
                 	jf.setVisible(false);
-                	new BxServerSocket();
                 	new FrameDemo().setVisible(true);
+
                 }
                 else if(name.getText().trim().equals("14251104207")&&password.getText().trim().equals("123456")){
                 	JOptionPane.showMessageDialog(null,"登录成功");
                 	jf.setVisible(false);
-                	new BxServerSocket();
+
                 	new Server();
                 	SendScreenImg sender=new SendScreenImg();
                 	sender.changeServerPort(30009);
@@ -61,6 +61,7 @@ public class Client extends JFrame {
                 	OperateWindow operate=new OperateWindow();
                 	new Thread(operate).start();
                 	new FrameDemo1().setVisible(true);
+
                 }
                 else if(name.getText().trim().length()==0||password.getText().trim().length()==0){
                     JOptionPane.showMessageDialog(null,"用户名或密码不能为空！");

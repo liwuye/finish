@@ -8,6 +8,7 @@ public class FrameDemo1 extends JFrame {
 
     public FrameDemo1() {
     	String IP = javax.swing.JOptionPane.showInputDialog(null,"请输入主机的电脑的IP");
+    	
         setTitle("学生端");//设置窗口标题
         setSize(400, 100);//设置窗口大小
         setLocationRelativeTo(null);//设置窗口居中
@@ -40,6 +41,7 @@ public class FrameDemo1 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    new BxServerSocket();
 					new BxClient(IP);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
@@ -52,6 +54,7 @@ public class FrameDemo1 extends JFrame {
             public void actionPerformed(ActionEvent e) {
         		ServerUI ui = new ServerUI();
         		SvrCom server = new SvrCom(ui);// 创建并启动网络通讯线程，准备接受客户端数据包
+        		ui.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             }
         });
         /*C.addActionListener(new ActionListener() {

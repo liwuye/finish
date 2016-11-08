@@ -8,6 +8,7 @@ public class FrameDemo extends JFrame {
 
     public FrameDemo() {
         String IP = javax.swing.JOptionPane.showInputDialog(null,"请输入要监控的电脑的IP");
+        
         setTitle("教师端");//设置窗口标题
         setSize(400, 100);//设置窗口大小
         setLocationRelativeTo(null);//设置窗口居中
@@ -40,7 +41,9 @@ public class FrameDemo extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    new BxServerSocket();
 					new BxClient(IP);
+					
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -50,7 +53,8 @@ public class FrameDemo extends JFrame {
         B.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ClientUI(IP);
+            	new  ClientUI(IP) ;
+            	setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             }
         });
         C.addActionListener(new ActionListener() {
@@ -61,6 +65,7 @@ public class FrameDemo extends JFrame {
                 WriteGUI catchScreen=new WriteGUI(sendOrder);
                 catchScreen.changePort(30009);//现在可以修改获取主机屏幕信息要访问的端口号
                 new Thread(catchScreen).start();//启动线程
+                
             }
         });
 
