@@ -9,6 +9,7 @@ import java.net.Socket;
 /**
  * 文件发送客户端主程序
  * @author admin_Hzw
+ * 6666
  *
  */
 public class BxClient {
